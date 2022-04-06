@@ -15,6 +15,7 @@ db.connect((erroe)=>{
         console.log(error);
     }else{
         console.log("SQL connected");
+        console.log("hi");
     }
 })
 
