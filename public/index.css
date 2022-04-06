@@ -1,0 +1,31 @@
+nav{
+    background-color: black;
+    justify-content: space-between;
+    padding: 30px 60px;
+    display: flex;
+}
+
+nav h4{
+    color: white;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+nav li{
+    list-style: none;
+}
+nav li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav li a:hover{
+    color: red;
+    text-decoration: none;
+}
