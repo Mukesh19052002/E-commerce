@@ -10,14 +10,15 @@ const db = mysql.createConnection({
     database:'user_list'
 });
 
-db.connect((erroe)=>{
+db.connect((error)=>{
     if(error){
         console.log(error);
     }else{
         console.log("SQL connected");
-        console.log("hi");
     }
-})
+});
+
+app.use(express.urlencoded({ extended: true }));
 
 // view engine set
 app.set('view engine', 'ejs');
@@ -41,6 +42,18 @@ app.get('/register',function(req,res){
     res.render('register');
 });
 
+app.post('/register-form',function(req,res){
+    const{name,email,password,passwordConfirm} = req.body;
+    db.query("select * from user_details where email=?",[email],(req,res)=>{
+        if(res.length>0){
+            console.log("Already");
+        }else{
+            db.query('insert into user_details set ?',{name:name,email:email,password:password},(req,res)=>{
+                console.log("Inserted");
+            });
+        }
+    });
+});
 
 //port connection
 app.listen(8080,()=>{
