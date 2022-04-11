@@ -65,6 +65,6 @@ nav li a:hover{
 }
 
 .submit:hover{
-    background-color: rgb(0, 0, 255);
+    background-color: green;
     color: white;
 }

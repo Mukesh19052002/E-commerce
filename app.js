@@ -3,6 +3,7 @@ const app = express();
 const mysql = require('mysql');
 const path = require('path');
 
+
 const db = mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -18,6 +19,7 @@ db.connect((error)=>{
     }
 });
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // view engine set
@@ -44,18 +46,24 @@ app.get('/register',function(req,res){
 
 app.post('/register-form',function(req,res){
     const{name,email,password,passwordConfirm} = req.body;
-    db.query("select * from user_details where email=?",[email],(req,res)=>{
-        if(res.length>0){
-            console.log("Already");
-        }else{
-            db.query('insert into user_details set ?',{name:name,email:email,password:password},(req,res)=>{
-                console.log("Inserted");
-            });
-        }
-    });
+    console.log(req.body);
+    if(password===passwordConfirm){
+        db.query("select * from user_details where email = ?",[email],function(req,res){
+            if(res.length>0){
+                // return res.json({status:'error',error:'Already exsists'});
+            }else{
+                db.query("insert into user_details set ?",{name:name,email:email,password:password},function(req,res){
+                    // return res.json({status:'error',error:'Registered Successfully'});
+                })
+                res.render('index');
+            }
+        })
+    }else{
+        // return res.json({"message":"Incorrect Password"});
+    }
 });
 
 //port connection
 app.listen(8080,()=>{
-    console.log("Server Started on port 8080")
+    console.log("Server Started on port 8080");
 });
