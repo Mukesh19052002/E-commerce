@@ -14,4 +14,8 @@ router.get('/register', function(req, res) {
     res.render('register');
 });
 
+router.get('/homepage', function(req, res) {
+    res.render('homepage');
+});
+
 module.exports = router;
