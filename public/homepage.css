@@ -1,0 +1,78 @@
+nav {
+    background-color: black;
+    justify-content: space-between;
+    padding: 30px 60px;
+    display: flex;
+}
+
+nav h4 {
+    margin-left: 50px;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav li a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+nav .search {
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+nav .search-box {
+    width: 60%;
+    height: 40px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: white;
+    border: 1px solid;
+    text-transform: capitalize;
+    color: black;
+    outline: none;
+}
+
+nav .search-btn {
+    width: 20%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.mainframe {
+    background: url("../image/good_food-wallpaper-1920x1080.jpg");
+    /* background: red; */
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
